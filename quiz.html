@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <h1>Simple Quiz</h1>
+
+    <form name="quiz" id="quiz-form">
+        <div class="form-control">
+            
+            <div>
+                Question 1: What is the capital of the Philippines? <br>
+                <!-- Enter field for question 1 here -->
+                <input type="text" name="q1" id="q1"/>
+                <div id="result-question1"></div>
+                <br>
+                <div id="error-q1" class="error"></div><br>
+                <div>
+                    <p id="p1"></p>
+                </div>
+            </div>  
+        </div>
+        <div class="form-control">
+            <div>
+                Question 2: What is the value of x? x = 3 + 2*5<br>
+                <!-- Enter options for question 2 here -->
+                <label>
+                    <input type="radio" name="op" id="op1" />x=25
+                </label><br>
+                <label>
+                    <input type="radio" name="op" id="op2" />x=13
+                </label><br>
+                <label>
+                    <input type="radio" name="op" id="op3" />x=18
+                </label>
+                <div id="error-op" class="error"></div><br>
+                <div id="result-question2"></div>
+                <br>
+                <div>
+                    <p id="p2"></p>
+                </div><br>
+            </div>
+        </div>
+        <div class="form-control">
+            <div>
+                Question 3: Which of the following birds can fly? Choose 3 correct answers.<br>
+                <!-- Enter options for question 3 here -->
+                <div id="result-question3"></div>
+                <label>
+                    <input type="checkbox" name="chk1" id="chk1" />Parrot<br>
+                    <input type="checkbox" name="chk1" id="chk2" />Eagle<br>
+                    <input type="checkbox" name="chk1" id="chk3" />Penguin<br>
+                    <input type="checkbox" name="chk1" id="chk4" />Crow<br>
+                </label><br>
+                <div id="error-chk" class="error"></div><br>
+                <div>
+                    <p id="p3"></p>
+                </div><br>
+            </div>
+        </div>
+        <div class="form-control">
+            <button type="submit" name="submitBtn"> Submit </button>
+            <button type="reset" name="resetBtn"> Reset </button>
+        </div>   
+    </form>
+
+
+    <script type="text/javascript">
+        const form = document.forms.quiz;
+        const q1=form.q1;
+        const op=form.op;
+
+
+        // get the values of each form here
+
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            checkQuestion1();
+            checkQuestion2();
+            checkQuestion3();
+
+          
+
+            
+        })
+
+        form.addEventListener('reset', function (event) {
+            event.preventDefault();
+            // Add more reset of inputs here
+        if (q1.value!=""){
+            q1.value="";
+        }
+        if(op1.checked=true){
+            document.getElementById('op1').checked=false;
+        }
+        if(op2.checked = true) {
+            document.getElementById('op2').checked = false;
+        }
+        if (op3.checked = true) {
+            document.getElementById('op3').checked = false;
+        }
+        if (chk1.checked = true) {
+            document.getElementById('chk1').checked = false;
+        }
+        if (chk2.checked = true) {
+            document.getElementById('chk2').checked = false;
+        } 
+        if (chk3.checked = true) {
+            document.getElementById('chk3').checked = false;
+        }
+        if (chk4.checked = true) {
+            document.getElementById('chk4').checked = false;
+        }   
+         
+            
+        })
+
+
+        function checkQuestion1() {
+            // Enter validation for question 1 here
+            var checkans= "Manila";
+            var q1ans=checkans.toLowerCase();
+              if (!q1.value) {
+                setError(q1, 'Answer required for Q1!');
+                return;
+            }
+            if (q1.value==q1ans || q1.value==checkans) {
+                document.getElementById("p1").style.color="green"
+                document.getElementById("p1").innerHTML = 'Q1: Answer is correct!'
+            } else {
+                document.getElementById("p1").style.color = "red"
+                document.getElementById("p1").innerHTML = 'Q1: Answer is incorrect!'
+            }
+        }
+
+        function checkQuestion2() {
+            // Enter validation for question 2 here
+           
+                var radios = document.getElementsByName("op");
+                var cnt=0;
+                     for (var i = 0, len = radios.length; i < len; i++) {
+                        if(radios[i].checked){
+                            cnt=cnt+1;
+                        }
+                        if(cnt>0){
+                            if (radios[1].checked) {
+                                document.getElementById("p2").style.color="green"
+                                document.getElementById("p2").innerHTML = 'Q2: Answer is correct!'
+                            } else {
+                                document.getElementById("p2").style.color = "red"
+                                document.getElementById("p2").innerHTML = 'Q2: Answer is incorrect!'
+                            }
+                        }else{
+                            document.getElementById("p2").style.color="red"
+                            document.getElementById("p2").innerHTML = 'Answer is required for Q2!'
+                        
+                        }
+                        
+                    }
+                }
+               
+            
+                
+
+        function checkQuestion3() {
+            // Enter validation for question 3 here
+            var chkans = document.getElementsByName("chk1");
+            var cnt = 0;
+            for (var i = 0, len = chkans.length; i < len; i++) {
+                if (chkans[i].checked) {
+                    cnt = cnt + 1;
+                }
+                if (cnt > 0) {
+                    if (chkans[0].checked && chkans[1].checked && chkans[3].checked)  {
+                        document.getElementById("p3").style.color="green"
+                        document.getElementById("p3").innerHTML = 'Q2: Answer is correct!'
+                    } else {
+                        document.getElementById("p3").style.color = "red"
+                        document.getElementById("p3").innerHTML = 'Q2: Answer is incorrect!'
+                    }
+                } else {
+                    document.getElementById("p3").style.color = "red"
+                    document.getElementById("p3").innerHTML = 'Answer is required for Q3!'
+
+                }
+
+            }
+
+        }
+        
+        function setError(field, errorMsg) {
+                field.style.borderColor = 'red';
+                document.getElementById('error-' + field.name).style.color="red";
+                document.getElementById('error-' + field.name).innerText = errorMsg;
+            }
+    </script>
+
+</body>
+
+</html>

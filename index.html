@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>COVID-19 VACCINATION PORTAL</title>
+</head>
+<body>
+    <form name="vaccine" id="vaccine-form" class="frmMain">
+        <h1>COVID-19 VACCINATION REGISTRATION</h1>
+<table class="tblform">
+       <div class="form-control">
+          <div id="error-fname" class="error"></div>
+        <div>
+              <label>First Name</label>
+            <input type="text" name="fname"/>
+        </div>
+        </div>
+        <div class="form-control">
+            <div id="error-mname" class="error"></div>
+            <div>
+                <label>Middle Name</label>
+                <input type="text" name="mname" />
+              
+            </div>
+        </div>
+        <div class="form-control">
+            <div id="error-lname" class="error"></div>
+            <div>
+                <label>Last Name</label>
+                <input type="text" name="lname" />
+            </div>
+        </div>
+        <div class="form-control">
+            <div id="error-bday" class="error"></div>
+            <div>
+                <label>Birthday</label>
+                <input type="date" name="bday" />
+            </div>
+        </div>
+        <div class="form-control">
+            <div id="error-email" class="error"></div>
+            <div>
+                <label>Email</label>
+                <input type="email" name="email" />
+            </div>
+        </div>
+        <div class="form-control">
+            <div>
+                <label>Region</label>
+                <select name="region">
+                    <option value="">-select one-</option>
+                    <option>Region I-Ilocos Region</option>
+                    <option>Region II-Cagayan Valley</option>
+                    <option>Region III-Central Luzon</option>
+                    <option>Region IV-A-CALABARZON</option>
+                    <option>MIMAROPA Region</option>
+                    <option>Region V-Bicol Region</option>
+                    <option>Region-VI-Western Visayas</option>
+                    <option>Region-VII-Central Visayas</option>
+                    <option>Region-VIII-Eastern Visayas</option>
+                    <option>Region-IX-Zamboanga Peninsula</option>
+                    <option>Region-X-Northern Mindanao</option>
+                    <option>Region-XI-Davao Region</option>
+                    <option>Region-XII-SOCCSKSARGEN</option>
+                    <option>Region-XIII-Caraga</option>
+                    <option>NCR-National Capital</option>
+                    <option>CAR-Cordillera Administrative Region</option>
+                    <option>BARMM-Bangsamoro Autonomous Region in Muslim MIndanao</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-control">
+            <div id="error-province" class="error"></div>
+            <div>
+                <label>Province</label>
+                <input type="text" name="province" />
+            </div>
+        </div>
+        <div class="form-control">
+            <div id="error-brgy" class="error"></div>
+            <div>
+                <label>Brgy.</label>
+                <input type="text" name="brgy" />
+            </div>
+        </div>
+        <div class="form-control">
+            <div id="error-street" class="error"></div>
+            <div>
+                <label>Street</label>
+                <input type="text" name="street" />
+            </div>
+        </div>
+        <div class="form-control">
+            <div id="error-gender" class="error"></div>
+            <div>
+                Gender
+                <label>Male
+                <input type="radio" name="gender" value="Male" />
+                </label>
+                <label>Female
+                <input type="radio" name="gender" value="Female" />
+                </label>
+                <label>Other
+                <input type="radio" name="gender" value="Other" checked/>
+                </label>
+            </div>
+            <div id="error-gender" class="error"></div>
+        </div>
+        <div class="form-control">
+            <div>
+                <label>Vaccination Brand (Dose 1)</label>
+                <select name="vaccinebrands">
+                    <option value="">-select one-</option>
+                    <option>Pfizer-BioNTech</option>
+                    <option>AstraZeneca</option>
+                    <option>Coronavac</option>
+                    <option>Sputnik V</option>
+                    <option>Janssen</option>
+                    <option>Covaxin</option>
+                    <option>Moderna</option>
+                    <option>Sinopharm</option>
+                    <option>Covovax</option>
+                </select>
+            </div>
+            <div id="error-vaccinebrands" class="error"></div>
+        </div>
+        <div class="form-control">
+            <div id="error-vaxdate1" class="error"></div>
+            <div>
+                <label>Date of Vaccination</label>
+                <input type="date" name="vaxdate1" name="vaxdate1"  />
+            </div>
+        </div>
+        <div class="form-control">
+            <div id="error-site1" class="error"></div>
+            <div>
+                <label>Vaccination (Dose 1) Site</label>
+                <input type="text" name="site1" id="site1"/>
+            </div>
+        </div>
+        <div class="form-control">
+            <div id="error-secondvac" class="error"></div>
+            <div>
+              Did you already get your second vaccination? 
+                <label>Yes
+                    <input type="radio" name="secondvac" id="cYes" value="Yes" onclick="EnableDisable()"/>
+                </label>
+                <label>No
+                    <input type="radio" name="secondvac" id="cNo" value="No" onclick="EnableDisable()"/>
+                </label>
+            </div>
+        </div>
+            <div class="form-control">
+                <div>
+                    <label>Vaccination Brand (Dose 2)</label>
+                    <select name="vaccinebrands2" id="vaccinebrands2" disabled>
+                        <option value="">-select one-</option>
+                        <option>Pfizer-BioNTech</option>
+                        <option>AstraZeneca</option>
+                        <option>Coronavac</option>
+                        <option>Sputnik V</option>
+                        <option>Janssen</option>
+                        <option>Covaxin</option>
+                        <option>Moderna</option>
+                        <option>Sinopharm</option>
+                        <option>Covovax</option>
+                    </select>
+                </div>
+                <div id="error-vaccinebrands2" class="error"></div>
+            </div>
+        <div class="form-control">
+            <div id="error-vaxdate2" class="error"></div>
+            <div>
+                <label>Date of Vaccination (Dose 2)</label>
+                <input type="date" name="vaxdate2" id="vaxdate2" disabled/>
+            </div>
+        </div>
+        <div class="form-control">
+            <div id="error-site2" class="error"></div>
+            <div>
+                <label>Vaccination (Dose 2) Site</label>
+                <input type="text" name="site2" id="site2" disabled="disabled" />
+            </div>
+        </div>
+        <div class="form-control">
+            <div>
+               <button type="submit" name="submitBtn" id="submitBtn">Submit</button>
+               <button type="reset" name="resetBtn">Reset</button>
+            </div>
+        </div>
+        <div><p id="p1"></p></div>
+        <div>
+            <p id="p2"></p>
+        </div>
+        <div>
+            <p id="p3"></p>
+        </div>
+        <div>
+            <p id="p4"></p>
+        </div>
+        <div>
+            <p id="p5"></p>
+        </div>
+        <div>
+        <p id="p5A"></p>
+        </div>
+        <div>
+            <p id="p6"></p>
+        </div>
+        <div>
+            <p id="p7"></p>
+        </div>
+        <div>
+            <p id="p8"></p>
+        </div>
+        <div>
+            <p id="p9"></p>
+        </div>
+        <div>
+            <p id="p10"></p>
+        </div>
+        <div>
+            <p id="p11"></p>
+        </div>
+        <div>
+            <p id="p12"></p>
+        </div>
+        <div>
+            <p id="p13"></p>
+        </div>
+        <div>
+            <p id="p14"></p>
+        </div>
+        <div>
+            <p id="p15"></p>
+        </div>
+    </table>
+    </form>
+</body>
+<script type="text/javascript">
+   
+</script>
+<script type="text/javascript">
+    const form=document.forms.vaccine;
+    const fname=form.fname;
+    const mname=form.mname;
+    const lname=form.lname;
+    const bday=form.bday;
+    const email=form.email;
+    const reg=form.region;
+    const prov=form.province;
+    const brgy=form.brgy;
+    const street=form.street;
+    const gender=form.gender;
+    const vaccbrand=form.vaccinebrands;
+    const vaxdate1=form.vaxdate1;
+    const site1=form.site1;
+    const secondvac=form.secondvac;
+    const vaccbrand2=form.vaccinebrands2;
+    const site2 = form.site2;
+    const vaxdate2 = form.vaxdate2;
+
+    
+
+    // answer.readOnly=true;
+
+    // secretQ.addEventListener('change',function(){
+    //     answer.readOnly=secretQ.value==='';
+    //     if(!secretQ.value){
+    //         answer.value='';
+    //     }
+    // })
+
+    //   if(!reg.value){
+    //         setError(reg,'Region is Required');
+    //     }
+    form.addEventListener('submit', function(event){
+        event.preventDefault();
+
+        if(!fname.value){
+            setError(fname,'First Name is required');
+            return;
+        }else{
+            var valfname = fname.value;
+            document.getElementById("p1").innerHTML ='First Name: '+valfname;
+        }
+        if(!mname.value){
+            setError(mname,'Middle Name is required');
+             return;
+        }else{
+            var valmname = mname.value;
+            document.getElementById("p2").innerHTML ='Middle Name: '+valmname;
+        }
+        if(!lname.value){
+            setError(lname,'Last Name is required');
+             return;
+        }else{
+            var vallname =lname.value;
+            document.getElementById("p3").innerHTML = 'Last Name: ' + vallname;
+        }
+        if(!bday.value){
+            setError(bday,'Birthday required');
+            return;
+        }else{
+            var valbday= bday.value;
+            document.getElementById("p4").innerHTML = 'Birthday: ' + valbday;
+        }
+        if(!email.value){
+            setError(email,'Email required');
+             return;
+        }else{
+             var valemail = email.value;
+            document.getElementById("p5").innerHTML = 'Email: ' + valemail;
+        }
+      
+        if(!prov.value){
+            setError(prov,'Province is required');
+             return;
+        }else{
+            var valprov = prov.value;
+            document.getElementById("p6").innerHTML = 'Province: ' + valprov;
+        }
+        if(!brgy.value){
+            setError(brgy,'Baranggay is required');
+             return;
+        }else{
+            var valbrgy= brgy.value;
+            document.getElementById("p7").innerHTML = 'Brgy.: ' + valbrgy;
+        }
+        if(!street.value){
+            setError(street,'Street is required');
+            return;
+        }else{
+            var valstreet= street.value;
+            document.getElementById("p8").innerHTML = 'Street: ' + valstreet;
+        }
+        // if(!gender.checked){
+        //     setError(gender,'Gender required');
+        //     return;
+        // }else{
+        //      var valgender= gender.value;
+        //     document.getElementById("p9").innerHTML = 'Gender: ' + valgender;
+        // }
+       
+            var valgender = gender.value;
+            document.getElementById("p9").innerHTML = 'Gender: ' + valgender;
+        
+        if(reg.value==""){
+            setError(reg, 'Region required');
+            return;
+        }else{
+            var valreg = reg.value;
+            document.getElementById("p5A").innerHTML = 'Region: ' + valreg;
+        }
+        if (vaccbrand.value == "") {
+            setError(vaccbrand, 'Dose 1 required');
+            return;
+        } else {
+            var vdose1 = vaccbrand.value;
+            document.getElementById("p10").innerHTML = 'Vaccine Brand for Dose 1 : ' + vdose1;
+        }
+        if (!vaxdate1.value) {
+            setError(vaxdate1, 'Date of 1st Dose of Vaccination required');
+            return;
+        } else {
+            var vaxdatedose1 = vaxdate1.value;
+            document.getElementById("p11").innerHTML = 'Date of 1st Dose Vaccination: ' + vaxdatedose1;
+        }
+         if (!site1.value) {
+            setError(site1, 'Site 1 required');
+            return;
+        } else {
+            var site1A = site1.value;
+            document.getElementById("p12").innerHTML = 'Site 1 : ' + site1A;
+        }
+        if (vaccbrand2.value == "") {
+            setError(vaccbrand2, 'Dose 2 required');
+            return;
+        } else {
+            var vdose2 = vaccbrand2.value;
+            document.getElementById("p13").innerHTML = 'Vaccine Brand for Dose 2 : ' + vdose2;
+        }
+        if (!vaxdate2.value) {
+            setError(vaxdate2, 'Date of 2nd Dose of Vaccination required');
+            return;
+        } else {
+            var vaxdatedose2 = vaxdate2.value;
+            document.getElementById("p14").innerHTML = 'Date of 2nd Dose Vaccination: ' + vaxdatedose2;
+        }
+        if (!site2.value) {
+            setError(site2, 'Site 2 required');
+            return;
+        } else {
+            var site2A = site2.value;
+            document.getElementById("p15").innerHTML = 'Site 2 : ' + site2A;
+        }
+        
+
+    })
+
+    function setError(field,errorMsg){
+        field.style.borderColor='red';
+        document.getElementById('error-' + field.name).style.color="red"
+        document.getElementById('error-'+field.name).innerText=errorMsg;
+    }
+          function EnableDisable() {
+                var chkYes = document.getElementById("cYes");
+                var vaxsite2 = document.getElementById("site2");
+                var vaccBrand2 = document.getElementById("vaccinebrands2");
+                var vaxdate2 = document.getElementById("vaxdate2");
+                vaccBrand2.disabled = chkYes.checked ? false : true;
+                vaxdate2.disabled = chkYes.checked ? false : true;
+                vaxsite2.disabled = chkYes.checked ? false : true;
+
+ }
+
+</script>
+
+</html>
